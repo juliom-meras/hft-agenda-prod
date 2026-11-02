@@ -1,1 +1,66 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Pasti-agenda</title><meta name="description" content="Gestiona la medicación, los tratamientos y las citas médicas de un paciente, con calendario y recordatorios."><meta name="theme-color" content="#0f766e" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0c1517" media="(prefers-color-scheme: dark)"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Pasti-agenda"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icons/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="icons/icon-192.png"><link rel="stylesheet" href="css/styles.css"><script defer src="js/app.js"></script></head><body><header class="topbar"><a class="marca" href="#/hoy" aria-label="Pasti-agenda, inicio"><img src="icons/icon.svg" alt="" width="30" height="30"><span>Pasti-agenda</span></a><button type="button" id="paciente-chip" class="paciente-chip" aria-label="Paciente"></button><button type="button" id="campana" class="icon-btn campana" data-action="campana" aria-label="Notificaciones"></button><a class="icon-btn" href="#/ayuda" aria-label="Ayuda" title="Ayuda"></a></header><main id="view" class="vista" tabindex="-1"><noscript>Pasti-agenda necesita JavaScript.</noscript></main><nav class="tabbar" aria-label="Secciones"></nav><div id="modal-root"></div><div id="toast-root" aria-live="polite"></div></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Pasti-agenda ahora es Pasti-1</title>
+  <meta name="description" content="Pasti-agenda se ha mudado a Pasti-1. Aquí puedes descargar una copia de seguridad de tus datos.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+  <meta name="theme-color" content="#0f766e">
+  <style>
+    :root { color-scheme: light dark; --fondo: #f6f8f8; --texto: #14282b; --tarjeta: #ffffff; --borde: #cfdadb; --acento: #0f766e; --sobre-acento: #ffffff; --aviso: #fff4d6; --aviso-borde: #b7791f; }
+    @media (prefers-color-scheme: dark) { :root { --fondo: #0c1517; --texto: #e6eeee; --tarjeta: #14221f; --borde: #2c3f3c; --acento: #5fd0c3; --sobre-acento: #06201c; --aviso: #3a2e0f; --aviso-borde: #e0b04a; } }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 16px; background: var(--fondo); color: var(--texto); font: 1.0625rem/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    main { max-width: 40rem; margin: 0 auto; }
+    h1 { font-size: 1.6rem; line-height: 1.2; margin: 8px 0 12px; }
+    h2 { font-size: 1.2rem; margin: 0 0 8px; }
+    section { background: var(--tarjeta); border: 1px solid var(--borde); border-radius: 12px; padding: 16px; margin: 16px 0; }
+    .aviso { background: var(--aviso); border: 2px solid var(--aviso-borde); border-radius: 8px; padding: 10px 12px; margin: 8px 0; }
+    .boton { display: inline-block; min-height: 48px; padding: 12px 20px; border: 0; border-radius: 10px; background: var(--acento); color: var(--sobre-acento); font: inherit; font-weight: 700; text-decoration: none; cursor: pointer; }
+    .boton[hidden] { display: none; }
+    a { color: var(--acento); }
+    ol, ul { padding-left: 1.3rem; }
+    #estado { margin: 8px 0 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Pasti-agenda ahora es Pasti-1</h1>
+    <p>Esta dirección ya no tiene la aplicación. Pasti-1 es la nueva versión, con tus mismos datos: no se pierde nada si sigues los pasos de abajo. Esta página no muestra ni modifica tus datos.</p>
+    <p><a class="boton" href="https://juliom-meras.github.io/pasti-1-prod/">Abrir Pasti-1</a></p>
+
+    <section id="iphone">
+      <h2>iPhone o iPad, o si Pasti-1 aparece vacía</h2>
+      <p class="aviso"><strong>No quites esta app de la pantalla de inicio hasta haber restaurado su copia en Pasti-1: quitarla borra sus datos.</strong></p>
+      <ol>
+        <li>Pulsa «Descargar copia de seguridad» aquí abajo y guarda el fichero (en iPhone y iPad, elige «Guardar en Archivos»).</li>
+        <li>Abre Pasti-1 y, en Paciente → Datos, elige «Restaurar copia» con ese fichero.</li>
+        <li>Comprueba que están tus pacientes y tratamientos. Solo entonces puedes quitar el icono antiguo.</li>
+      </ol>
+      <p><button type="button" id="descargar" class="boton" hidden>Descargar copia de seguridad</button></p>
+      <p id="estado" role="status"></p>
+    </section>
+
+    <section id="navegador">
+      <h2>En este navegador</h2>
+      <ol>
+        <li>Abre Pasti-1 con el botón de arriba: los datos de este navegador pasan solos.</li>
+        <li>Comprueba que está todo. Después puedes quitar el icono antiguo (en iPhone y iPad, solo si ya has restaurado su copia, como se explica arriba) e instalar Pasti-1.</li>
+        <li>No apuntes nada más en la aplicación antigua: no llegaría a Pasti-1.</li>
+      </ol>
+    </section>
+
+    <section id="android">
+      <h2>App de Android</h2>
+      <ol>
+        <li>En la aplicación antigua, exporta una copia de seguridad.</li>
+        <li>Descarga e instala el APK de Pasti-1 desde <a href="https://github.com/juliom-meras/pasti-1-prod/releases/latest">la última versión</a>.</li>
+        <li>En Pasti-1, restaura esa copia y comprueba que está todo. Después desinstala la aplicación antigua.</li>
+      </ol>
+    </section>
+  </main>
+  <noscript><p>Para descargar la copia de seguridad hace falta JavaScript.</p></noscript>
+  <script type="module" src="descarga.js"></script>
+</body>
+</html>
