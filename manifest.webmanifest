@@ -1,6 +1,6 @@
 {
-  "name": "MediAgenda · Medicación y citas",
-  "short_name": "MediAgenda",
+  "name": "Pasti-agenda · Medicación y citas",
+  "short_name": "Pasti-agenda",
   "description": "Gestiona la medicación, los tratamientos y las citas médicas de un paciente, con calendario y recordatorios.",
   "lang": "es",
   "start_url": "./#/hoy",
